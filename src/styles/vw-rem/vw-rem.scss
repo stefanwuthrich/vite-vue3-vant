@@ -1,0 +1,222 @@
+@charset "UTF-8";
+
+@import 'util';
+@import 'border';
+
+.f-p-0 {
+  padding: 0 !important;
+}
+
+.f-border {
+  @include border($direction: all, $size: 1px, $color: #ddd, $style: solid);
+}
+
+.f-border-bottom {
+  @include border($direction: bottom, $size: 1px, $color: #ddd, $style: solid);
+}
+
+/* 圆角边框自定义多个角，顺序 */
+.f-border-radius {
+  @include border(
+    $radius: (
+      10px,
+      20px,
+      30px,
+      40px,
+    )
+  );
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  @include root-font-size();
+}
+
+body {
+  font-family: 'Microsoft YaHei';
+  font-size: px2rem(28);
+  background-color: #f8f8f8;
+
+  /* rem2px的使用方式，仅用于临时计算 */
+  border-width: rem2px(0.6);
+}
+
+.container {
+  background-color: #fff;
+}
+
+header {
+  height: px2rem(300);
+  line-height: px2rem(300);
+  text-align: center;
+  background-color: #f2f2f2;
+}
+
+/* 容器宽高比 */
+// .header {
+//     @include aspect-ratio(
+//         // $width: px2rem(600),
+//         // $sub: ".header-content",
+//         $aspectX: 375,
+//         $aspectY: 150
+//     )
+// }
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    width: px2rem(200);
+    justify-content: center;
+  }
+
+  .icon {
+    width: px2rem(120);
+    height: px2rem(120);
+    margin-bottom: px2rem(20);
+    line-height: px2rem(120);
+    text-align: center;
+    background-color: #f2f2f2;
+  }
+}
+
+main {
+  padding: px2rem(20);
+
+  h3 {
+    position: relative;
+    margin-top: px2rem(50);
+    margin-left: px2rem(26);
+    font-size: px2rem(30);
+
+    /* 字体也可以选择不使用rem
+            @include font-size(30px);
+        */
+
+    &::before {
+      position: absolute;
+      left: px2rem(-20);
+      width: px2rem(12);
+      height: 100%;
+      background-color: #fc8200;
+      content: '';
+    }
+  }
+}
+
+.info-items {
+  margin-top: px2rem(20);
+  margin-bottom: px2rem(20);
+}
+
+.info-item {
+  // border: 1px solid #ddd;
+
+  display: flex;
+  padding: px2rem(30);
+  padding-left: 0;
+  margin-top: px2rem(20);
+
+  /* 多个边框调用 */
+  &:not(.info-item__tel) {
+    @include border($direction: all, $size: 1px, $color: #ddd, $style: solid, $radius: 50px);
+  }
+
+  &.info-item__tel {
+    @include border($direction: bottom, $size: 1px, $color: #ddd, $style: solid);
+  }
+
+  &:only-of-type {
+    @include border($direction: all, $size: 1px, $color: #ddd, $style: solid);
+  }
+
+  /* 多个边框的动态更新 */
+  &.hover {
+    @include border(
+      $direction: (
+        top,
+        right,
+        bottom,
+        left,
+      ),
+      $size: (
+        3px,
+        2px,
+        1px,
+      ),
+      $color: (
+        #0f0,
+        #ddd,
+      ),
+      $style: dotted
+    );
+  }
+
+  span {
+    /* 单个边框调用 */
+    @include border($direction: right);
+
+    min-width: px2rem(120);
+    text-align: center;
+
+    /* 单个边框的动态更新 */
+    &.hover {
+      @include border($direction: right, $size: 5px, $color: #0f0);
+    }
+
+    // border-right: 1px solid #ddd;
+  }
+
+  input {
+    width: 100%;
+    font-size: px2rem(28);
+    border: none;
+    outline: none;
+    caret-color: #fc8200;
+  }
+
+  textarea {
+    width: 100%;
+    height: px2rem(250);
+    padding: px2rem(20);
+    font-family: 'Microsoft YaHei';
+    font-size: px2rem(28);
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    border: none;
+    caret-color: #fc8200;
+  }
+}
+
+.info-confirm {
+  margin-bottom: px2rem(40);
+  text-align: center;
+
+  &__btn {
+    display: inline-block;
+    width: px2rem(200);
+    height: px2rem(80);
+    margin-top: px2rem(80);
+    line-height: px2rem(80);
+    color: #fff !important;
+    text-align: center;
+    text-decoration: none !important;
+    background-color: #fc8200;
+  }
+}
+
+footer {
+  height: px2rem(150);
+  line-height: px2rem(150);
+  text-align: center;
+  background-color: #f2f2f2;
+}
