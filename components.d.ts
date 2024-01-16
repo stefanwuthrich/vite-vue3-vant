@@ -15,6 +15,7 @@ declare module 'vue' {
     RouterLink: (typeof import('vue-router'))['RouterLink'];
     RouterView: (typeof import('vue-router'))['RouterView'];
     VanCard: (typeof import('vant/es'))['Card'];
+    VanContactCard: (typeof import('vant/es'))['ContactCard'];
     VanGrid: (typeof import('vant/es'))['Grid'];
     VanGridItem: (typeof import('vant/es'))['GridItem'];
     VanIcon: (typeof import('vant/es'))['Icon'];

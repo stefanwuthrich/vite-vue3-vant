@@ -16,6 +16,7 @@
       </van-grid>
     </van-swipe-item>
   </van-swipe>
+  <van-contact-card type="edit" name="John Snow" tel="13000000000" :editable="true" />
   <van-card
     v-for="item in 20"
     :key="item"

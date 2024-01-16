@@ -1,8 +1,12 @@
 import { createApp } from 'vue';
+import { Locale } from 'vant';
+import enUS from 'vant/es/locale/lang/en-US';
 import App from './App.vue';
 import { setupPlugins } from './plugins';
 import { setupStore } from './store';
 import { setupRouter } from './router';
+
+Locale.use('en-US', enUS);
 
 const app = createApp(App);
 
