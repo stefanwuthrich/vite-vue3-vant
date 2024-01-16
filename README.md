@@ -1,39 +1,33 @@
-## 移动端布局方案
+Mobile Layout Solution An example application of mobile end layout using vant4.x + vue3.x + vite5.x + ts.4.x + REM layout + Viewport (VW) layout.
 
-移动端 vant3.x + vue3.x + vite2.x + ts.4.x + REM 布局 + Viewport (VW) 布局的实例运用
+Three layout schemes are provided:
 
-## 在线预览
+1. REM Layout
 
-http://buqiyuan.gitee.io/vite-vue3-h5
+Dynamically set the font-size of HTML using JavaScript, use REM units in CSS, and the text size can be in pixels (px).
 
-提供三个布局方案
+Set the viewport's scale with JavaScript to support 1px on high-definition devices.
 
-**1. REM 布局**
+Set the maximum and minimum page width.
 
-使用 js 动态设置 html 的 font-size，css 使用 rem 单位，文本大小可选择使用 px
+2. VW Layout
 
-js 设置 viewport 的 scale 以支持高清设备的 1px
+Use VW units in CSS, and the text size can be in pixels (px).
 
-可设置页面最大最小宽度
+Use transform to support 1px borders on high-definition devices (including rounded corners) using @mixin ./vw/scss/\_border.scss.
 
-**2. VW 布局**
+Set a fixed aspect ratio for containers, but cannot set the maximum and minimum page width.
 
-css 使用 vw 单位，文本大小可选择使用 px
+3. REM + VW Layout
 
-使用 transform 以支持高清设备的边框 1px（包括圆角），使用 @mixin `./vw/scss/_border.scss`
+Set the font-size of HTML in VW units, use REM units in CSS, and the text size can be in pixels (px).
 
-可设置容器固定纵横比，不可设置页面最大最小宽度
+Use transform to support 1px borders on high-definition devices (including rounded corners) using @mixin ./vw-rem/scss/\_border.scss.
 
-**3. REM + VW 布局**
+Set a fixed aspect ratio for containers, and can set the maximum and minimum page width.
 
-html 的 font-size 使用 vw 单位，css 使用 rem 单位，文本大小可选择使用 px
+Usage yarn dev
 
-使用 transform 以支持高清设备的边框 1px（包括圆角），使用 @mixin `./vw-rem/scss/_border.scss`
+For the style call method in the business code, refer to the three files ./rem/scss/rem.scss, ./vw/scss/vw.scss, and ./vw-rem/scss/vw-rem.scss; you can configure the data-content-max attribute in the corresponding position of the HTML file
 
-可设置容器固定纵横比，可设置页面最大最小宽度
-
-## 使用
-
-1. yarn dev
-
-2. 业务代码中样式的调用方式可参考 `./rem/scss/rem.scss` 及 `./vw/scss/vw.scss` 及 `./vw-rem/scss/vw-rem.scss` 三个文件；可在 html 文件相应位置配置 `data-content-max` 属性来限制容器最大最小宽
+to limit the maximum and minimum width of the container.
