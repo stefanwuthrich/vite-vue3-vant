@@ -12,11 +12,8 @@ declare module 'vue' {
     FieldCalendarPicker: (typeof import('./src/components/field-calendar-picker.vue'))['default'];
     FieldDatetimePicker: (typeof import('./src/components/field-datetime-picker.vue'))['default'];
     FieldPicker: (typeof import('./src/components/field-picker.vue'))['default'];
-    ListCard: (typeof import('./src/components/list-card.vue'))['default'];
-    PersonSelect: (typeof import('./src/components/person-select.vue'))['default'];
     RouterLink: (typeof import('vue-router'))['RouterLink'];
     RouterView: (typeof import('vue-router'))['RouterView'];
-    SearchPerson: (typeof import('./src/components/search-person.vue'))['default'];
     VanCard: (typeof import('vant/es'))['Card'];
     VanGrid: (typeof import('vant/es'))['Grid'];
     VanGridItem: (typeof import('vant/es'))['GridItem'];

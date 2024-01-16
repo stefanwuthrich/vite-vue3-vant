@@ -4,18 +4,18 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import legacy from '@vitejs/plugin-legacy';
 import Components from 'unplugin-vue-components/vite';
 import { VantResolver } from 'unplugin-vue-components/resolvers';
-import { viteMockServe } from 'vite-plugin-mock';
+//import { viteMockServe } from 'vite-plugin-mock';
 import vue from '@vitejs/plugin-vue';
 import checker from 'vite-plugin-checker';
 import type { UserConfig, ConfigEnv } from 'vite';
 
 const CWD = process.cwd();
 
-export default ({ command, mode }: ConfigEnv): UserConfig => {
+export default ({ mode }: ConfigEnv): UserConfig => {
   // 环境变量
   const { VITE_BASE_URL, VITE_DROP_CONSOLE } = loadEnv(mode, CWD);
 
-  const isBuild = command === 'build';
+  // const isBuild = command === 'build';
 
   return {
     base: VITE_BASE_URL,
@@ -38,7 +38,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       Components({
         resolvers: [VantResolver()],
       }),
-      viteMockServe({
+      /*viteMockServe({
         ignore: /^_/,
         mockPath: 'mock',
         localEnabled: !isBuild,
@@ -49,7 +49,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
 
           setupProdMockServer();
           `,
-      }),
+      }),*/
       // https://github.com/fi3ework/vite-plugin-checker
       checker({
         typescript: true,
